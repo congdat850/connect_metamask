@@ -36,8 +36,8 @@ export default function Home() {
   const connectWallet = async () => {
     try {
       const provider = await web3Modal.connect();
-      const library = new ethers.providers.Web3Provider(provider);
-      const accounts = await library.listAccounts();
+      const library = new ethers.providers.Web3Provider(provider); // datnc connect here
+      const accounts = await library.listAccounts(); // datnc query
       const network = await library.getNetwork();
       setProvider(provider);
       setLibrary(library);
@@ -219,7 +219,7 @@ export default function Home() {
                 <Button onClick={switchNetwork} isDisabled={!network}>
                   Switch Network
                 </Button>
-                <Select placeholder="Select network" onChange={handleNetwork}>
+                <Select placeholder="Select network" onChange={handleNetwork}> // datnc swith network
                   <option value="3">Ropsten</option>
                   <option value="4">Rinkeby</option>
                   <option value="42">Kovan</option>
